@@ -1,7 +1,19 @@
+import Banner from "@/pages/Banner";
+import FeaturedPosts from "@/pages/FeaturesPost";
+import PhotoGallery from "@/pages/PhotoGallery";
+
 export default function Home() {
   return (
     <main>
-      <h1 className="text-2xl font-bold text-center">Hello developers</h1>
+      <div>
+        <Banner/>
+      </div>
+      <div>
+        <FeaturedPosts/>
+      </div>
+      <div>
+        <PhotoGallery/>
+      </div>
     </main>
   );
 }

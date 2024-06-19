@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
@@ -23,29 +23,32 @@ const Signup = () => {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       const res = await fetch(`http://localhost:5000/api/v1/auth/signup`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+        credentials: 'include'
       });
+
       const data = await res.json();
       setFormData({});
       setLoading(false);
       console.log(data);
 
       if (res.ok) {
-        toast.success("Sign-up successful!");
+        toast.success('Sign-up successful!');
         setTimeout(() => {
-          router.push("/login");
+          router.push('/login');
         }, 1000);
       } else {
-        toast.error(data.message || "Sign-up failed!");
+        toast.error(data.message || 'Sign-up failed!');
       }
     } catch (error) {
-      toast.error("An unexpected error occurred!");
+      toast.error('An unexpected error occurred!');
     } finally {
       setLoading(false);
     }
@@ -108,7 +111,7 @@ const Signup = () => {
               placeholder="*******"
             />
             <p className="text-gray-500 text-sm my-1">
-              Already have an account?{" "}
+              Already have an account?{' '}
               <Link
                 className="text-blue-500 hover:underline duration-300"
                 href="/login"
@@ -124,7 +127,7 @@ const Signup = () => {
               type="submit"
               disabled={loading}
             >
-              {loading ? "loading..." : "Sign Up"}
+              {loading ? 'loading...' : 'Sign Up'}
             </button>
           </div>
         </form>

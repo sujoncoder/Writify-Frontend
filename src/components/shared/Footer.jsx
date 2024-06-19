@@ -13,7 +13,7 @@ const Footer = () => {
           </div>
           <div className="w-full sm:w-1/2 lg:w-1/3 mb-6">
             <h5 className="text-xl font-bold mb-4">Quick Links</h5>
-            <ul>
+            <ul className="flex gap-3">
               <li className="mb-2">
                 <a href="#" className="hover:text-white">
                   Home
